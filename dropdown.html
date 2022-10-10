@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown menu</title>
+</head>
+<body>
+
+<select id="numberToSelect" onchange="selectNum()">
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+
+<script>
+    function selectNum() {
+        let element = document.getElementById("numberToSelect");
+        let selectedValue = element.value;
+        let selectedText = element.options[element.selectedIndex].text;
+        console.log(selectedValue);
+        console.log(selectedText);
+    }
+</script>
+
+</body>
+</html>
