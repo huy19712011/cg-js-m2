@@ -150,7 +150,7 @@ console.log(add2(1, 2, 3));
 
 // Exercises
 // Fibonacci
-/*
+
 function fibonacci(num: Number): number {
     if (num == 1)
         return 0;
@@ -170,11 +170,12 @@ function summary(n: number): Number {
 
 console.log(fibonacci(8));
 console.log(summary(8));
-*/
+
 
 // 2 arrays
 const a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const b = [0, 2, 3, 5, 7, 8, 9, 10];
 a
     .filter(value => b.indexOf(value) < 0)
+    .filter(value => value % 2 !== 0)
     .forEach(value => console.log(value));
