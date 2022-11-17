@@ -79,8 +79,105 @@ class LinkedList<T> {
 */
 
 
+class MyNode<T> {
+    data: T;
+    next: MyNode<T> | null = null;
+
+    constructor(data: T) {
+        this.data = data;
+    }
+}
+
+export class LinkedList<T> {
+    head: MyNode<T> | null;
+    tail: MyNode<T> | null;
+
+    size: number;
+
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
+    }
+
+    insertFirstNode(data: T) {
+        let node = new MyNode(data);
+        node.next = this.head;
+        this.head = node;
+
+        if (!this.tail) {
+            this.tail = node
+        }
+        this.size++;
+    }
+
+    insertLastNode(data: T) {
+        if (!this.head){
+            this.insertFirstNode(data);
+        }else {
+            let node = new MyNode(data);
+            this.tail.next = node;
+            this.tail = node;
+            this.size++;
+        }
+    }
+
+    search(data: T) {
+        if (this.size){
+            let currentNode = this.head;
+            while (currentNode !== null) {
+                if (currentNode.data == data) {
+                    return currentNode;
+                }
+                currentNode = currentNode.next;
+            }
+        }
+
+        return null;
+    }
+
+    deleteFirstNode() {
+        if (this.head) {
+            if (this.head.next){
+                this.head = this.head.next;
+            } else {
+                this.head = null;
+            }
+            this.size--;
+        }
+    }
+
+    deleteLastNode() {
+        if (this.head) {
+            let currentNode = this.head;
+            if (!currentNode.next) {
+                this.head = null;
+            } else {
+                let previousNode = null;
+                while (currentNode.next) {
+                    previousNode = currentNode;
+                    currentNode = currentNode.next;
+                }
+                previousNode.next = null;
+                this.tail = previousNode;
+                this.size--;
+            }
+        }
+    }
+
+}
+
+let list = new LinkedList<number>();
+list.insertFirstNode(1);
+list.insertFirstNode(2);
+list.insertFirstNode(3);
+list.insertFirstNode(4);
+
+console.log(list);
+
 
 // 6. Double Linked list
+/*
 class DoublyLinkedList {
     nodes: any[] = [];
 
@@ -157,4 +254,5 @@ list.insertLast(4);
 list.insertAt(3, 5);
 //
 console.log(list)
+*/
 
