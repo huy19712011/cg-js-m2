@@ -8,7 +8,8 @@ export class DocManager {
     }
 
     showAll() {
-        this.list.forEach(doc => console.log(doc.showInfo()));
+        // this.list.forEach(doc => console.log(doc.showInfo()));
+        this.list.forEach(doc => console.log(doc));
     }
 
     add(doc: Doc) {

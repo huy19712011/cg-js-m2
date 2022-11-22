@@ -1,21 +1,20 @@
 let readlineSync = require('readline-sync');
 
-function showMenu() {
+export function showMenu() {
     const mainMenu = `
         ---------------------Menu---------------------
-        1. Add employee
-        2. Edit employee
-        3. Delete employee
-        4. Sort employees by name
-        5. Show all employees
-        6. Sort employees
+        1. Add document
+        2. Edit document
+        3. Delete document
+        4. Find document by title
+        5. Show all document
+        6. Show all documents by type
         0. Exit
     `;
     console.log(mainMenu);
 }
 
 showMenu();
-
 let exit: boolean = false;
 while (true) {
     const choose = + readlineSync.question("Please choose: ");
