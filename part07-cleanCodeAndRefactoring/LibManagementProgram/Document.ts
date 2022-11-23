@@ -6,6 +6,13 @@ export class Doc { // tai lieu
     protected publishingCompany: string; // nha xuat ban
     protected quantity: number; // so luong
 
+    // static emptyConstructor() {
+    //     this.id = id;
+    //     this.title = title;
+    //     this.publishingCompany = company;
+    //     this.quantity = quantity;
+    // }
+
     constructor(id: number, title: string, company: string, quantity: number) {
         this.id = id;
         this.title = title;
