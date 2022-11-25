@@ -118,23 +118,21 @@ catch(err) {
 // 3. Examples: 4, 5, 6
 
 // 4. Js vs Typescript
-function doOrThrow(err){
-    if (Math.random() > .5){
+function doOrThrow(err) {
+    if (Math.random() > .5) {
         console.log('true')
         return true;
-    }
-    else{
+    } else {
         throw err;
     }
 }
-try{
+
+try {
     doOrThrow('err1');
     doOrThrow('err2');
     doOrThrow('err3');
-}
-catch (e){
-    console.log(e,'error')
-}
-finally{
+} catch (e) {
+    console.log(e, 'error');
+} finally {
     console.log("Terminated");
 }

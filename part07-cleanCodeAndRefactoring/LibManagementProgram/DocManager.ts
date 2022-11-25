@@ -20,4 +20,12 @@ export class DocManager {
     remove(id: number) {
         this.list = this.list.filter(doc => doc.getId() !== id);
     }
+
+    findByTitle(title: string): Doc[] {
+        return this.list.filter(doc => doc.getTitle() === title);
+    }
+
+    findById(id: number): Doc[] {
+        return this.list.filter(doc => doc.getId() === id);
+    }
 }

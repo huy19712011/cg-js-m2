@@ -11,7 +11,7 @@ function showMenu() {
         ---------------------Menu---------------------
         1. Add document
         2. Edit document
-        3. Delete document
+        3. Remove document
         4. Find document by title
         5. Show all documents
         6. Show all documents by type
@@ -22,7 +22,7 @@ function showMenu() {
 
 function showAddMenu() {
     const addMenu = `
-        ---------------------Menu---------------------
+        ---------------------Add document---------------------
         1. Add book
         2. Add magazine
         3. Add newspaper
@@ -71,6 +71,18 @@ while (true) {
         case 3:
             break;
         case 4:
+            const title = readlineSync.question("Input title: ");
+            const list = docManager.findByTitle(title);
+            console.log("find");
+            // list.forEach(item => item.showInfo());
+            list.forEach(item => console.log(item));
+            break;
+        case 44:
+            const id = +readlineSync.question("Input ID: ");
+            const listId = docManager.findById(id);
+            console.log("findById");
+            console.log(listId);
+            listId.forEach(item => item.showInfo());
             break;
         case 5:
             console.log("ok");
