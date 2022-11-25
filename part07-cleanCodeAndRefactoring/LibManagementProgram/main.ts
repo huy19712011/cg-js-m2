@@ -31,6 +31,28 @@ function showAddMenu() {
     console.log(addMenu);
 }
 
+function showEditMenu() {
+    const addMenu = `
+        ---------------------Edit document---------------------
+        1. Edit book
+        2. Edit magazine
+        3. Edit newspaper
+        0. Exit
+    `;
+    console.log(addMenu);
+}
+
+function showDocByType() {
+    const addMenu = `
+        ---------------------Choose document---------------------
+        1. All Books
+        2. All Magazines
+        3. All Newspapers
+        0. Exit
+    `;
+    console.log(addMenu);
+}
+
 const docManager = new DocManager([]);
 docManager.add(new Book(11, "Book 1", "KHKT", 1000, "NTN", 200));
 docManager.add(new Magazine(21, "Magazine 1", "Codegym", 100, 12, new Date()));
@@ -63,17 +85,54 @@ while (true) {
                     docManager.add(newNewspaper);
                     docManager.showAll();
                     break;
+                case 0:
+                    console.log("Exit...");
+                    exit = true;
+                    break;
             }
 
             break;
         case 2:
+            showEditMenu();
+            const editChoice = +readlineSync.question("Please choose type of document: ");
+            switch (editChoice) {
+                case 1:
+                    // edit Book
+                    const bookId = +readlineSync.question("Please choose book id: ");
+                    const newBook = Book.emptyInstance().input();
+                    docManager.update(bookId, newBook);
+                    docManager.showAll();
+                    break;
+                case 2:
+                    // edit Magazine
+                    const magazineId = +readlineSync.question("Please choose magazine id: ");
+                    const newMagazine = Magazine.emptyInstance().input();
+                    docManager.update(magazineId, newMagazine);
+                    docManager.showAll();
+                    break;
+                case 3:
+                    // edit Newspaper
+                    const newNewspaperId = +readlineSync.question("Please choose newspaper id: ");
+                    const newNewspaper = Newspaper.emptyInstance().input();
+                    docManager.update(newNewspaperId, newNewspaper);
+                    docManager.showAll();
+                    break;
+                case 0:
+                    console.log("Exit...");
+                    exit = true;
+                    break;
+            }
+
             break;
         case 3:
+            // remove document
+            const idToRemove = +readlineSync.question("Please choose document id to remove: ");
+            docManager.remove(idToRemove);
+            docManager.showAll();
             break;
         case 4:
             const title = readlineSync.question("Input title: ");
             const list = docManager.findByTitle(title);
-            console.log("find");
             // list.forEach(item => item.showInfo());
             list.forEach(item => console.log(item));
             break;
@@ -89,6 +148,20 @@ while (true) {
             docManager.showAll();
             break;
         case 6:
+            // show Documents by type
+            showDocByType();
+            const type = +readlineSync.question("Please choose type of Document: ");
+            switch (type) {
+                case 1:
+                    docManager.showBooks();
+                    break;
+                case 2:
+                    docManager.showMagazines();
+                    break;
+                case 3:
+                    docManager.showNewspapers();
+                    break;
+            }
             break;
         case 0:
             console.log("Exit...");

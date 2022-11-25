@@ -1,4 +1,7 @@
 import {Doc} from "./Document";
+import {Book} from "./Book";
+import {Magazine} from "./Magazine";
+import {Newspaper} from "./Newspaper";
 
 export class DocManager {
     private list: Doc[] = [];
@@ -10,6 +13,21 @@ export class DocManager {
     showAll() {
         // this.list.forEach(doc => console.log(doc.showInfo()));
         this.list.forEach(doc => console.log(doc));
+    }
+
+    showBooks() {
+        this.list.filter(doc => doc instanceof Book)
+            .forEach(doc => console.log(doc));
+    }
+
+    showMagazines() {
+        this.list.filter(doc => doc instanceof Magazine)
+            .forEach(doc => console.log(doc));
+    }
+
+    showNewspapers() {
+        this.list.filter(doc => doc instanceof Newspaper)
+            .forEach(doc => console.log(doc));
     }
 
     add(doc: Doc) {
@@ -27,5 +45,14 @@ export class DocManager {
 
     findById(id: number): Doc[] {
         return this.list.filter(doc => doc.getId() === id);
+    }
+
+    update(id: number, newItem: Doc): void {
+        this.list = this.list.map(item => {
+            if (item.getId() === id)
+                return newItem;
+
+            return item;
+        });
     }
 }
