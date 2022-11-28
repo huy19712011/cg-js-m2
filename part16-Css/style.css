@@ -1,0 +1,182 @@
+/*
+1. css basics
+-- inline
+-- internal
+-- external
+    + import
+    <style>
+        @import url('styles.css');
+    </style>
+
+    + using <link>
+    <link rel='stylesheet' href='styles.css'>
+
+
+2. Syntax
+-- common syntax
+selector {
+    attribute: value;
+    ...
+}
+
+
+
+3. CSS Selectors
+-- type selector
+p {text-align: center}
+
+
+-- Descendant selector
+p b {color: red;}
+ul li b {color: blue;}
+example 000.html
+
+
+-- Child selector
+<p><i><b>Hello</b> there</i></p>
+p b {color: red;} => red
+p > b {color: red;} => no
+example 001.html
+
+
+-- using Ids
+<div id='welcome'>Hello there</div>
+#welcome { font-style:italic; color:blue; }
+
+
+-- using classes
+<div class='welcome'>Hello</div>
+.welcome { font-style:italic; color:blue; }
+
+
+-- Attribute selector
+[type="submit"] { width:100px; }
+form input[type="submit"] { width:100px; }
+
+
+--  Universal Selector
+* { border:1px solid green; }
+#boxout * p {border:1px solid green; }
+
+
+-- Selecting by Group
+p, #idname, .classname { border-bottom:1px dotted orange; }
+
+
+3a.Measurements
+-- pixels:
+-- point: pt = 1/72 inch
+-- inch
+-- centimeters
+-- em: current font-size
+-- ex
+-- percent (%)
+
+
+4. Common CSS attributes
+-- font: font-family, font-style, font-side, font-weight
+
+-- font: font-family
+p { font-family:Verdana, Arial, Helvetica, sans-serif; }
+p { font-family:"Times New Roman", Georgia, serif; }
+
+-- font: font-style
+.normal { font-style:normal; }
+.italic { font-style:italic; }
+.oblique { font-style:oblique; }
+
+-- font: font-side
+h1 { font-size:240%; }
+h2 { font-size:200%; }
+h3 { font-size:160%; }
+h4 { font-size:120%; }
+
+-- font: font-weight
+.bold { font-weight:bold; }
+
+-- Text style: decoration, spacing, alignment, transformation, indenting,
+.over { text-decoration:overline; }
+
+p {
+ line-height :125%;
+ word-spacing :30px;
+ letter-spacing:3px;
+}
+
+
+p { text-align:center; }
+
+
+.upper { text-transform:uppercase; }
+
+
+p { text-indent:20px; }
+
+
+-- CSS color
+- The standard 16 color names as defined by the W3C standards organization are aqua,
+black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver,
+teal, white, and yellow
+
+div { color:#ffff00; }
+#object { background-color:silver; }
+body { background-color:rgb(0, 255, 255); }
+
+
+-- Gradients
+example 03.html
+
+
+
+5. Positions
+-- Static
+-- Relative
+-- Fixed
+-- Absolute
+-- Sticky
+
+
+
+6. Pseudo classes, pseudo elements
+.bigfirst:first-letter {
+ font-size:400%;
+ float :left;
+}
+
+a:link { color:blue; }
+a:visited { color:lightblue; }
+
+a:hover {
+ color :white;
+ background:red;
+}
+
+
+a:active { color:darkblue; }
+
+example 05.html
+
+
+7. The Box Model and Layout
+
+
+8. Advanced
+Matching Parts of Strings
+The box-sizing Property
+CSS3 Backgrounds
+    The background-clip Property
+    The background-origin Property
+    The background-size Property
+    Using the auto Value
+    Multiple Backgrounds
+CSS3 Borders
+    The border-color Property
+    The border-radius Property
+Box Shadows
+Element Overflow
+Colors and Opacity
+Text Effects
+Web Fonts
+Transformations
+
+*/
