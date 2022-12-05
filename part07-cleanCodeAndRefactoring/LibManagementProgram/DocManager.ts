@@ -2,12 +2,14 @@ import {Doc} from "./Document";
 import {Book} from "./Book";
 import {Magazine} from "./Magazine";
 import {Newspaper} from "./Newspaper";
+import {CrudRepo} from "./CrudRepo";
 
-export class DocManager {
-    private list: Doc[] = [];
+export class DocManager extends CrudRepo<Doc>{
+    // private list: Doc[] = [];
 
     constructor(list: Doc[]) {
-        this.list = list;
+        super();
+        // this.list = list;
     }
 
     showAll() {
@@ -30,11 +32,11 @@ export class DocManager {
             .forEach(doc => console.log(doc));
     }
 
-    add(doc: Doc) {
-        this.list = [...this.list, doc];
-        // this.list.push(doc);
-    }
-
+    // add(doc: Doc) {
+    //     this.list = [...this.list, doc];
+    //     // this.list.push(doc);
+    // }
+    //
     remove(id: number) {
         this.list = this.list.filter(doc => doc.getId() !== id);
     }
@@ -47,12 +49,12 @@ export class DocManager {
         return this.list.filter(doc => doc.getId() === id);
     }
 
-    update(id: number, newItem: Doc): void {
-        this.list = this.list.map(item => {
-            if (item.getId() === id)
-                return newItem;
-
-            return item;
-        });
-    }
+    // update(id: number, newItem: Doc): void {
+    //     this.list = this.list.map(item => {
+    //         if (item.getId() === id)
+    //             return newItem;
+    //
+    //         return item;
+    //     });
+    // }
 }

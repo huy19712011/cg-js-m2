@@ -99,7 +99,9 @@ while (true) {
                 case 1:
                     // edit Book
                     const bookId = +readlineSync.question("Please choose book id: ");
+                    const book = docManager.findById(bookId)[0];
                     const newBook = Book.emptyInstance().input();
+                    newBook.setId(bookId);
                     docManager.update(bookId, newBook);
                     docManager.showAll();
                     break;

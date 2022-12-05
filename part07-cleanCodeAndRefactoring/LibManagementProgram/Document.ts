@@ -38,6 +38,10 @@ export class Doc { // tai lieu
         return this.id;
     };
 
+    setId(id: number) {
+        this.id = id;
+    }
+
     showInfo(): string {
         return "";
     };

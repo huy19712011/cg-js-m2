@@ -1,4 +1,7 @@
-class CrudRepo<T> {
+import {IT} from "./IT";
+import {Doc} from "./Document";
+
+export class CrudRepo<T extends IT> {
     protected list: T[] = [];
 
     getOne(index: number): T {
@@ -13,15 +16,21 @@ class CrudRepo<T> {
         this.list = [...this.list, item];
     }
 
-    update(index: number, newItem: T) {
+    update(id: number, newItem: T) {
         this.list =
-            this.list.map((item, idx) => idx === index ? {...newItem} : item);
+            this.list.map(item => item.getId() === id ? newItem : item);
+    }
 
-            // this.list.map((item, idx) => {
-            //     if (idx === index) {
-            //         item = {...newItem};
-            //     }
-            //     return item;
-            // });
+    // update(id: number, newItem: T): void {
+    //     this.list = this.list.map(item => {
+    //         if (item.getId() === id)
+    //             return newItem;
+    //
+    //         return item;
+    //     });
+    // }
+
+    remove(id: number) {
+        this.list = this.list.filter(item => item.getId() !== id);
     }
 }
